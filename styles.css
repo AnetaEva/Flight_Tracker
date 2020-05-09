@@ -1,0 +1,751 @@
+.center {
+  margin: auto
+}
+
+/* THIS IS FOR THE RESTART/PAUSE/RUN BUTTONS */
+.btn {
+   border-radius: 4px;
+   background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%);/*background: linear-gradient(to right, #7994ab, #85abf5) !important;*/
+   border: none;
+   color: #FFFFFF;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 16px;
+   padding: 15px;
+   width: 200px;
+   transition: all 0.4s;
+   cursor: pointer;
+   margin: 5px;
+}
+
+.btn:hover {
+  color: #a1a1a1;
+  background: #434343;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+}
+
+/* .pane {
+  padding: 10px;
+  border: 4px solid #000000;
+  width: 100%;
+  height: 100%;
+} */
+
+.stat-label p{ /* this changes the Altitude/Bearing/Speed in the map*/
+  font-size: 12px;
+  color: #FFFFFF;
+  margin: 0;
+}
+
+/*CHANGES THE MAP*---- checked on AwardSpace */
+#mapid { 
+  width: 675px; 
+  height: 675px;
+  border: 10px solid black;
+  /*border-radius: 0px;*/
+  margin: 20px;
+  padding: 10px;
+  
+}
+
+.container {
+  max-width: 1280px;
+}
+
+body {
+  background-color: black;
+  color: #fff;
+}
+
+.container {
+  margin-top: 20px
+}
+
+.nomarg {
+  margin: 0;
+}
+
+.radar-settings {
+  height: 310px;
+  background-color: transparent;
+  padding: 10px;
+  width: 100%;
+  margin: 0 0 20px 0;
+
+}
+
+.radar-settings > span {
+  margin: 10px;
+  padding: 0;
+}
+
+/* KEYBOARD */
+.console-container { /* THIS STRETCHES THE INPUT/KEYBOARD -- checked on AwardSpace*/ 
+  width: 100%;
+  background-color: #fff;
+  margin: 10px 0 0 0;
+  vertical-align: center;
+}
+
+.console { /*this is for arrangements of the input, the input line and keyboard buttons*/
+width: 980px;
+background-color: #FFFFFF;
+  height: 42px;
+  color: #000000;
+}
+
+/* THIS IS FOR THE INPUT / KEYBOARD BUTTONS */
+.console-container > button {
+   border-radius: 4px;
+   background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%); !important;
+   border: none;
+   color: #FFFFFF;
+   text-align: center;
+   text-transform: uppercase;
+   font-size: 16px;
+   padding: 15px;
+   width: 200px;
+   transition: all 0.4s;
+   cursor: pointer;
+   margin: 5px;
+  
+}
+
+
+
+
+
+
+span > * {
+  display: inline-block; /* this seems to be changing the line between V and numbers*/
+  
+}
+
+/* THIS CHANGES THE COLOR OF THE CALLSIGN/ALTITUDE/BEARING in the table/*/
+span > p {
+    margin: 10px;
+    color: #000000;
+    font-size: 18px; 
+}
+
+.simulation-controls {
+  width: 100%; /*changing this to px moves the restart/pause/run buttons*/
+}
+
+.simulation-controls > button {
+  width: 60px;
+  margin: 10px 2px 0 0;
+  font-size: 14px;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #fff;
+  color: white; /* THIS IS THE TEXT COLOR OF THE RUN/PAUSE/RESTART BUTTONS */
+}
+
+.simulation-speed > button{
+  direction: rtl;
+  /*margin: 5px
+  border-radius: 100px;
+  margin: 10px 0px 0 0;
+  color: #000000;*/
+  
+}
+
+
+/* THIS CHANGES THE RESTART / PAUSE / RUN BUTTONS */
+.simulation-speed-buttons button {
+  /*width: 100px;*/
+  margin: 100px;
+  padding: 0;
+  justify-content: center;
+  background-color: blue;
+  border-radius: 0;
+  border: 1px solid #fff;
+  color: #000000;
+}
+
+/*this starts the simulation/range slider*/
+input[type=range] {
+	justify-content: center;
+	align-items: center;
+  height: 100%;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 25%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 25%;
+  height: 14px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #50555C;
+  background: #50555C;
+  border-radius: 14px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+	direction: ltr;
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 50px;
+  border-radius: 12px;
+  background: #84a2bd;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -3px;
+  
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #50555C;
+}
+input[type=range]::-moz-range-track {
+  width: 50%;
+  height: 14px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #50555C;
+  background: #50555C;
+  border-radius: 14px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+	justify-content: center;
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 40px;
+  border-radius: 12px;
+  background: #529DE1;
+  cursor: pointer;
+  margin: 7px;
+}
+input[type=range]::-ms-track {
+  width: 50%;
+  height: 14px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #50555C;
+  border: 0px solid #000000;
+  border-radius: 28px;
+  box-shadow: 1px 1px 1px #50555C;
+}
+input[type=range]::-ms-fill-upper {
+  background: #50555C;
+  border: 0px solid #000000;
+  border-radius: 28px;
+  box-shadow: 1px 1px 1px #50555C;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 0px solid #000000;
+  height: 20px;
+  width: 40px;
+  border-radius: 12px;
+  background: #529DE1;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #50555C;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #50555C;
+}
+
+/* this ends the simulation/range slider*/
+
+.right-container {
+  text-align: center;
+}
+
+.tac {
+  text-align: center;
+}
+/* THIS CONTROLS THE "THIS DOES NOT DO ANYTHING BUTTONS" */
+.flight-actions {
+  width: 100%;
+}
+/* THIS CONTROLS THE "THIS DOES NOT DO ANYTHING BUTTONS" */
+.flight-actions button {
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  border: 1px solid #fff;
+  color: white;
+  display: block;
+}
+
+/* THIS ADJUSTS THE LOADED FOR SCENARIO STUFF --- checked on AwardSpace */
+.list-group {
+	border: solid;
+	max-height: 200px; 
+	margin: 25px;
+  margin-bottom: 10px;
+  width: 410px; /*this changes the loaded for scenario scrolling width*/
+  overflow-y: scroll; /*visible disabled the scrolling feature on loaded for scenario*/
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background-color: #ffffff;
+}
+
+.list-group-item { /* seems to be changing the loaded for scenario buttons -- checked on AwardSpace*/
+  display: block;
+  color: #000000;
+  justify-content: center;
+  align-items: center;
+  /*min-height: 100vh;*/
+  border: none;/*1px solid transparent;*/
+  background-color: #ffffff;
+    /*border-collapse: collapse;*/
+  background-color: white;
+  overflow: hidden;
+  width: 600px;
+  border-radius: 3px;
+    text-align: left;
+  font-size: 16px;
+  padding: 10px;
+
+
+  
+  
+  /*background-color: #fff;*/
+  /*border-radius: 0;*/
+  /*padding: 2px 8px 2px;*/
+  /*background-color: #FFFFFF;*/
+  /*color: #000000; /* changes the color of letters inside loaded for scenario */
+  /*border: none;/*1px solid #fff;*/
+  /*overflow: hidden;*/
+  /*width: 200%;*/
+  /*flex: none;*/
+  /*max-height: 100px;*/
+}
+
+.active-flights-container { /* THIS FIXES THE LOADED FOR SCENARIO STUFF */
+display: block;
+justify-content: center;
+font-size: 20px;
+width: 90%; /* this is the width of the black around loaded for scenario */
+  align-items: center;
+  text-align: center;
+  margin-bottom: 35px;
+  
+  background-color: transparent;
+  border-radius: 4px; /* this is for the rounded corners */
+  color: #FFFFFF; /*changes the color of the word Loaded for Scenario*/
+  border: none;
+  margin: 12px;
+  padding: none;
+
+}
+.active-flights-container h5{
+	background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%); !important;
+	color: #FFFFFF;
+	margin: 15px;
+	border-radius: 4px;
+	padding: 8px;
+	width: 100%;
+}
+
+#selected {
+
+}
+
+.list-group-item:hover {
+  background-color: #777;
+  color: #fff;
+  text-decoration: none;
+}
+
+.list-group-item.active{
+  background-color: #777;
+  
+  /* border-radius: 0;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+  overflow-x: hidden;
+  width: 100%; */
+}
+
+.list-group-item:focus {
+	color: #fff;
+	text-decoration: none;
+	background-color: #777;
+}
+
+.controls {
+  width: 100%;
+  margin: 0;
+}
+/* start of the stopwatch clock timer */
+
+
+/* stop of the stopwatch clock timer */
+.simulation-time h1{
+	background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%); !important;
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;;
+	color: #FFFFFF;
+	border-radius: 4px;
+	padding: 8px;
+	margin: 25px;
+	width: 90%;
+	font-size: 20px;
+}
+
+.simulation-time p{ /* this is the actual clock 00:00:00*/
+	display: block;
+	justify-content: center;
+	text-align: center;
+	color: #000000;
+	width: 100%;
+	font-size: 35px; /*this makes the 00:00:00 time bigger*/
+	font-family: OCR B MT; 
+}
+.simulation-time { /* this is the words TIME*/
+  width: 100%;
+  margin-top: 25px;
+  color: #000000;
+  font-size: 25px;
+  font-family: OCR B MT; 
+}
+
+.simulation-clock {
+  /* border: 1px solid #fff;   */
+  padding: 2px 10px;
+  color: #000000;
+  width: 100%;
+  margin: 0;
+  font-family: OCR B MT; 
+}
+
+.clearfix {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+/* THIS ADJUSTS THE LOADED FOR SCENARIO BOX */
+.active-flights {
+  height: 400px;
+  background-color: transparent;
+  padding: 10px;
+  width: 100%;
+  margin: 0;
+
+}
+
+/* THIS CHANGES THE FLIGHT INFO / CALLSIGN / ALTITUDE / BEARING / SPEED */
+.flight-info {
+	display: block;
+	justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF; /*#2C2C2C;*/ /* THIS CHANGES THE BACKGROUND OF THE BOX INSIDE FLIGHT INFO*/
+  font-size: 16px;
+  color: #000000; /* this changes the color of the word flight info */
+  border: none; /*3px solid white;*/
+  height: 250px;
+  margin: 25px;
+  padding: 0;
+  width: 90%; /* THIS CHANGES THE BOX WIDTH AROUND CALLSIGN/ALTITUDE/BEARING/SPEED */
+
+}
+.flight-info h5{
+	background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%); !important;
+	color: #FFFFFF;
+	border-radius: 4px;
+	padding: 8px;
+	width: 400px;
+}
+
+.callsign-info {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+/* CHANGES THE BOX COLOR /DIMENSIONS AROUND FLIGHT INFO*/
+.selected-info {
+    background-color: transparent; /* this changed the color of the box around callsign/altitude/bearing/speed*/
+    color: #000000;
+    height: 100px;
+    margin: 20px;
+    /*-webkit-box-shadow: 0px 0px #000000;
+    box-shadow: 0px 0px #000000;
+    text-shadow: 0px 0px;*/
+}
+
+.airport-filters-container {
+  background-color: #2C2C2C;
+  border: 3px solid white;
+  padding: 6px;
+  width: 200px;
+}
+
+.airport-filters-container span{
+  margin: 0 2px 20px;
+  display: block
+}
+
+/* TODO: Git gud */
+.selected-info span {
+    display: block;
+    width: 100%;
+    color: #FFFFFF;
+}
+
+
+.keyboard-button { /* this changes the actual keyboard buttons, the background of buttons is separate */
+  width: 150px;
+  height: 120px;
+}
+
+#on-screen-keyboard tr td button{
+  font-weight: bold; /* this is for the ABCDEFG etc keys*/
+  
+  
+}
+
+.left-container {
+  padding: 0;
+}
+
+.right-container {
+  padding: 0;
+}
+
+.leaflet-popup {
+  margin-left: 62px;
+  
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #FFFFFF; /*#00000000;*/
+}
+
+.leaflet-popup-content {
+  color: aqua;
+}
+
+.leaflet-popup-tip-container {
+  display: none;
+}
+
+.leaflet-popup-close-button {
+  display: none;
+}
+
+.leaflet-popup-content-wrapper {
+  box-shadow: none;
+}
+
+.popup-callsign-container {
+  width: 120px;
+  height: 80px;
+  margin-bottom: -58px;
+}
+
+/* THIS IS FOR THE ARROW FROM THE V TO THE n CALLSIGN FOR FLIGHTS */
+.popup-callsign-left {
+  margin: none;
+  padding: 0;
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+}
+/*.popup-callsign-left {
+  margin: 16px 0 0 0;
+  padding: 0;
+  display: inline-block;
+  text-align: right;
+  width: 20%;
+  font-size: 10px;
+}*/
+.popup-callsign-right {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: 74%;
+  text-align: left;
+  vertical-align: middle
+}
+
+.leaflet-tooltip {
+  border: none;
+  background-color: #00000000;
+  color: white;
+  box-shadow: none;
+  margin-left: 64px;
+
+}
+
+.leaflet-tooltip-top::before {
+	
+  display: none;
+}
+/* this is for the N on the map*/ 
+.popup-callsign-right > p {
+	font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+/* STARTING THE NAVIGATION */
+header{
+  padding: 0px;
+  margin: 10px;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body{
+	background-color: white; /* THIS CHANGES THE ENTIRE BACKGROUND COLOR */
+    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	margin: 0;
+	padding: 0;
+}
+
+/* THIS CHANGES THE NAVIGATION BACKGROUND COLOR, HEIGHT & WIDTH */
+nav{ 
+    background: linear-gradient(90deg, rgba(106,109,110,1) 0%, rgba(71,130,158,1) 100%); 
+    height: 80px;
+    width: 100%;
+	
+}
+
+/* THIS CHANGES THE LOGO */
+label.logo{ 
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+/*THIS MAKES THE UNORDERED LIST SHIFT RIGHT */
+nav ul{ 
+	float: right; /* RIGHT */
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/* THIS MAKES CHANGES TO THE LIST ITEM */
+nav ul li{ 
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 20px 0 0;
+}
+
+nav ul li a{ 
+  color: white;
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+/* THIS CHANGES THE COLOR OF THE NAV WHEN YOU HOVER OVER IT */
+a.active,a:hover{
+  background: #969da3;
+  transition: .5s;
+}
+
+.checkbtn{
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check{
+  display: none;
+}
+
+@media (max-width: 952px){
+  label.logo{
+    font-size: 30px;
+    padding-left: 50px;
+  }
+  
+    nav ul li a{
+    font-size: 16px;
+  }
+}
+@media (max-width: 858px){
+  .checkbtn{
+    display: block;
+  }
+  
+    ul{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #020C00;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  
+    nav ul li{
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a{
+    font-size: 20px;
+  }
+  a:hover,a.active{
+    background: none;
+    color: #0082e6;
+  }
+  #check:checked ~ ul{
+    left: 0;
+  }
+}
+
+/*THIS STARTS THE SECTION */
+section { 
+  padding: 0px;
+  margin: 0px;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	background-color: white;
+}
+
+article {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+}
+
+aside{
+	display: flex;
+	flex-direction: column;
+}
+
+/* keyboard start */

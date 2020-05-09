@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SimFast</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+	
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="HandheldFriendly" content="true">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body> 
+<header> 
+<nav> 
+<label class="logo">SimFast</label>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="#">Files</a></li>
+<li><a href="#">Display</a></li>
+<li><a href="#">Scenario Tools</a></li>
+<li><a href="#">Maintenance</a></li>
+<li><a href="#">Help</a></li>
+</ul>
+</nav>
+</header> 
+
+<section>
+<article>
+<center></br></br></br></br>
+<!-- PAUSE / RESTART / RUN -->
+<button class="btn" id="play-simulation">RUN</button></br></br>
+<button class="btn" onclick="location.reload()">RESTART</button></br></br>
+<button class="btn" id="pause-simulation">PAUSE</button></br></br>
+<!-- EMERGENCY LANDING / TAKE OFF/ HOLD PATTERN -->
+<!-- <div> <!-- extra div--> 
+<button type="button" class="btn" id="button-emergency-landing">Emergency landing</button></br></br>
+<button type="button" class="btn" id="button-hold">Hold pattern</button></br></br>
+<button type="button" class="btn" id="button-takeoff">Take off</button></br>
+</center>
+<!-- </div> <!-- extra div--> 
+
+</div> <!-- extra div-->
+</article>
+<article>
+
+ <!-- MAP -->  
+<div> <!-- extra div--> 
+<div id="mapid"></div>
+<div><center><input value="16" type="range" id="simulation-speed" name="simulation-speed" min="16" max="160"></center></div>
+<center><label for="simulation-speed"></center>
+</article>
+
+<!-- <div> <!-- extra div--> 
+<!--<article>
+<center>
+<!-- PAUSE / RESTART / RUN -->
+<!--<button class="btn" onclick="location.reload()">RESTART</button>
+<!--<button class="btn" id="pause-simulation">PAUSE</button>
+<!--<button class="btn" id="play-simulation">RUN</button>
+<!-- EMERGENCY LANDING / TAKE OFF/ HOLD PATTERN -->
+<!-- <div> <!-- extra div--> 
+<!--<button type="button" class="btn" id="button-emergency-landing">Emergency landing</button>
+<button type="button" class="btn" id="button-hold">Hold pattern</button>
+<button type="button" class="btn" id="button-takeoff">Take off</button>
+</center>
+<!-- </div> <!-- extra div--> 
+
+</div> <!-- extra div-->
+</article>
+
+
+<aside>
+<!-- LOADED FOR SCENARIO -->
+<div> <!-- extra div-->
+<div class="simulation-time">
+<p><center><h1>TIME</h1></p><p class="simulation-clock" id="clock">0:00</p></center>
+</div>
+<!--<div>-->
+<div class="active-flights-container"> <!-- this makes a gray box around all of loaded for scenario-->
+<center><p><h5>LOADED FOR SCENARIO</h5></p></center></div>
+<span class="list-group" id="flight-selector"></span>
+</div>
+
+</div>
+</div> <!-- extra div-->
+
+
+<!-- FLIGHT INFO -->
+<!-- <div> extra div-->
+<div class="flight-info">
+<center><h5>FLIGHT INFO</h5></center>
+
+<div class="selected-info">
+<span><p style="float: left">Callsign:</p><p style="float: right" id="big-callsign">n/a</p></span>
+<div class="clearfix"></div>
+<span><p style="float: left">Altitude:</p><p style="float: right" id="big-altitude">n/a</p></span>
+<div class="clearfix"></div>
+<span><p style="float: left">Bearing:</p><p style="float: right" id="big-bearing">n/a</p></span>
+<div class="clearfix"></div>
+<span><p style="float: left">Speed:</p><p style="float: right" id="big-speed">n/a</p></span>
+<div class="clearfix"></div>
+
+</div>
+</div>
+</aside>
+<!-- </div> <!-- extra div-->
+
+<!--</article>-->
+</section>
+            
+
+
+
+
+
+<!--</section>-->
+<section>
+<article>
+<!--<div class="row">-->
+<div class="console-container center">
+<button type="button" class="btn" id="console-enter">INPUT</button>
+<input class="console" type="text" name="" id="console-input">
+<button type="button" class="btn" id="console-show-keyboard">KEYBOARD</button>
+<!--</div>-->
+</div>
+</article>
+</section>
+
+
+        <div class="row">
+            <!-- <img id="on-screen-keyboard" class="hidden" src="./assets/Keyboard.png" alt="" style="width: 1000px; margin: auto"> -->
+			
+            <table id="on-screen-keyboard" class="hidden" style="background-color: #ccc; margin: auto">
+				<tr>
+				<td><button class="keyboard-button" style="background-color: forestgreen">M1</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M2</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M3</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M4</button></td>
+					<td><button class="keyboard-button">CON</button></td>
+                    <td><button class="keyboard-button">MAP</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M5</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M6</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M7</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M8</button></td>
+				</tr>
+				<tr>
+				<td><button class="keyboard-button" style="background-color: forestgreen">M9</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M10</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M11</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M12</button></td>
+					<td><button class="keyboard-button">TRK</button></td>
+                    <td><button class="keyboard-button">USR</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M13</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M14</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M15</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">M16</button></td>
+				</tr>
+                <tr>
+                    <td><button class="keyboard-button" style="background-color: yellow">CLEAR</button></td>
+                    <td><button class="keyboard-button" style="background-color: yellow">BACK<br>SPACE</button></td>
+                    <td colspan="6"><button class="keyboard-button" style="width: 910px; background-color: yellow">SPACE</button></td>
+                    <td colspan="2"><button class="keyboard-button" style="width: 310px; background-color: red">ENTER</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">INIT<br>CTRL</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">TRK<br>RPOS</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">TRK<br>SUSP</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">TERM<br>CTRL</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">HND<br>OFF</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">FLT<br>DATA</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">MULTI<br>FUNC</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F8</button></td>
+                    <td><button class="keyboard-button" style="background-color: yellow">𐤃</button></td>
+                    <td><button class="keyboard-button" style="background-color: yellow">.</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F9</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F10</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">CA</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F12</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F13</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F14</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">TGT<br>GEN</button></td>
+                    <td><button class="keyboard-button" style="background-color: forestgreen">F16</button></td>
+                    <td><button class="keyboard-button" style="background-color: yellow">IFR<br>+</button></td>
+                    <td><button class="keyboard-button" style="background-color: yellow">VFR<br>/</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button">A</button></td>
+                    <td><button class="keyboard-button">B</button></td>
+                    <td><button class="keyboard-button">C</button></td>
+                    <td><button class="keyboard-button">D</button></td>
+                    <td><button class="keyboard-button">E</button></td>
+                    <td><button class="keyboard-button">F</button></td>
+                    <td><button class="keyboard-button">G</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">1</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">2</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">3</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button">H</button></td>
+                    <td><button class="keyboard-button">I</button></td>
+                    <td><button class="keyboard-button">J</button></td>
+                    <td><button class="keyboard-button">K</button></td>
+                    <td><button class="keyboard-button">L</button></td>
+                    <td><button class="keyboard-button">M</button></td>
+                    <td><button class="keyboard-button">N</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">4</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">5</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">6</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button">O</button></td>
+                    <td><button class="keyboard-button">P</button></td>
+                    <td><button class="keyboard-button">Q</button></td>
+                    <td><button class="keyboard-button">R</button></td>
+                    <td><button class="keyboard-button">S</button></td>
+                    <td><button class="keyboard-button">T</button></td>
+                    <td><button class="keyboard-button">U</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">7</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">8</button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">9</button></td>
+                </tr>
+                <tr>
+                    <td><button class="keyboard-button">V</button></td>
+                    <td><button class="keyboard-button">W</button></td>
+                    <td><button class="keyboard-button">X</button></td>
+                    <td><button class="keyboard-button">Y</button></td>
+                    <td><button class="keyboard-button">Z</button></td>
+                    <td><button class="keyboard-button">=</button></td>
+                    <td><button class="keyboard-button"></button></td>
+                    <td><button class="keyboard-button"></button></td>
+                    <td><button class="keyboard-button" style="background-color: cyan">0</button></td>
+                    <td><button class="keyboard-button"></button></td>
+                </tr>
+            </table>
+    </div>
+
+</body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
+    <script src="./lib/leaflet.rotatedMarker.js"></script>
+    <!-- <script src="lib/index.js"></script> -->
+    <script type="module" src="./Flight.js" ></script>
+    <script type="module" src="./FlightManager.js" ></script>
+    <script type="module" src="./FlightController.js" ></script>
+    <script type="module" src="main.js"></script>
+</html>
